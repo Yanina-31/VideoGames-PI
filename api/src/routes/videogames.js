@@ -3,8 +3,8 @@ const router = express.Router()
 const axios = require('axios');
 require('dotenv').config();
 const {YOUR_API_KEY} = process.env;
-const {Genre, Videogame} = require('../db')
-
+const {Genre, Videogame, videogame_genre} = require('../db')
+const { v4: uuidv4 } = require('uuid');
 
 // GET https://api.rawg.io/api/games
 const getApiInfo = async () => {
@@ -138,5 +138,39 @@ router.get('/:id', async (req, res) => {
         res.json(infoByID);    
 })
 
+router.post('/', async (req, res) => {
+    let{
+        name,
+        description,
+        released,
+        image,
+        rating,
+        platforms,
+        genre, 
+    } = req.body
+
+    let genreCreate = await Genre.create({ 
+        name: genre,  
+    })
+    
+    let id = uuidv4()
+    let videoGameCreate = await Videogame.create({ 
+        id: id,
+        name,
+        description,
+        released,
+        image,
+        rating,
+        platforms: [platforms],
+       
+    })
+
+    let conexionCreate = await videogame_genre.create({
+        videogameId: videoGameCreate.id,
+        genreId: genreCreate.id
+    })
+
+     res.json([videoGameCreate, {genre:genreCreate}]);
+})
 
 module.exports = router;
