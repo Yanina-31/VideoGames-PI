@@ -65,33 +65,6 @@ const getApiByName = async (name) => {
         return response ;
     } 
 
-// GET https://api.rawg.io/api/genres
-
-router.get('/genres', async (req, res) => {
-    try {
-        let genres = await axios.get(`https://api.rawg.io/api/genres?key=${YOUR_API_KEY}`)
-        genres = genres.data.results;
-
-        const mapGeneros = genres.map(e => {
-            return {
-                id: e.id,
-                name: e.name
-            }
-        })
-        mapGeneros.forEach((e) => {
-            Genre.findOrCreate({
-                where: {
-                    name: e.name
-                }
-            })
-        })
-        res.json(mapGeneros)
-    }
-    catch(e){
-        res.send(e)
-    }
-})
-
 
 // GET https://api.rawg.io/api/games/{id}
 
@@ -151,14 +124,40 @@ router.get('/database', async (req, res) => {
 
 router.get('/', async (req, res) => {
     const { name } = req.query
-    if (name) {
-        const infoByName = await getInfoByName(name)
-        res.json(infoByName);
-    }
-    else{
-        const allDate = await getAllInfo()   
-        res.json(allDate);
-    }
+    try {
+        if (name) {
+            const infoByName = await getInfoByName(name)
+            res.json(infoByName);
+        }
+        else{
+            const allDate = await getAllInfo()   
+            res.json(allDate);
+        }
+        }
+        catch(e){
+            res.send('Nombre no encontrado')
+        }
+})
+
+router.get('/', async (req, res) => {
+    const { name } = req.query
+    try {
+        if (name) {
+            let juegoName = await Videogame.findAll({
+                where: {
+                    name
+                },
+                include: Genre
+            })
+            return res.json(juegoName)
+        }
+    
+            const gameName = await getInfoByName(name)   
+            res.json(gameName);
+        }
+        catch(e){
+            res.send('Nombre no encontrado')
+        }
 })
 
 router.get('/database', async (req, res) => {
@@ -199,28 +198,38 @@ router.post('/', async (req, res) => {
         genre, 
     } = req.body
 
-    let genreCreate = await Genre.create({ 
-        name: genre,  
-    })
-    
-    let id = uuidv4()
-    let videoGameCreate = await Videogame.create({ 
-        id: id,
-        name,
-        description,
-        released,
-        image,
-        rating,
-        platforms: [platforms],
-       
-    })
+    if(name && description && rating && genre){ 
+        const genero = await Genre.findOne({ 
+            where: { 
+                name: genre
+            }
+        })
+        if (genero){
+            let id = uuidv4()
 
-    let conexionCreate = await videogame_genre.create({
-        videogameId: videoGameCreate.id,
-        genreId: genreCreate.id
-    })
-
-     res.json([videoGameCreate, {genre:genreCreate}]);
+            let videoGameCreate = await Videogame.create({ 
+                id: id,
+                name,
+                description,
+                released,
+                image,
+                rating,
+                platforms: [platforms],
+            
+            })
+            // let genreCreate = await Genre.create({ 
+            //     name: genre,  
+            // })
+        
+            let conexionCreate = await videogame_genre.create({
+                videogameId: videoGameCreate.id,
+                genreId: genero.id
+            })
+        return res.json([videoGameCreate, {genre:genero}]);
+        }
+    res.send("No se encontro el genero")
+    }
 })
+
 
 module.exports = router;

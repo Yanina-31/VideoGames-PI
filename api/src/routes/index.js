@@ -5,6 +5,7 @@ const axios = require('axios');
 
 const videogame = require('./videogames.js');
 
+const genre = require('./genre.js');
 
 const router = Router();
 // Configurar los routers
@@ -12,6 +13,8 @@ const router = Router();
 router.use('/videogames', videogame);
 
 router.use('/videogame', videogame);
+
+router.use('/', genre);
 
 
 module.exports = router;
