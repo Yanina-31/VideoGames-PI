@@ -222,7 +222,7 @@ router.post('/', async (req, res) => {
         })
 
         videoGameCreate.addGenre(genreDB)
-        res.send('VideoJuego Creado')
+        res.send('Juego Creado')
 
     }catch(error){
         res.status(400).json({message: error})
