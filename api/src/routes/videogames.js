@@ -201,49 +201,33 @@ router.post('/', async (req, res) => {
         genre, 
     } = req.body
     try{ 
+        let genreDB = await Genre.findAll({ 
+            where: {name: genre}, 
+        })
+        if(genreDB.length !== genre.length){
+            return res.json({error: 'Genero no encontrado'})
+        }
+        
+        let id = uuidv4()
 
-    // if(name && description && rating && genre){ 
-    //     const genero = await Genre.findOne({ 
-    //         where: { 
-    //             name: genre
-    //         }
-    //     })
-        // if (genero){
-            let id = uuidv4()
+        let videoGameCreate = await Videogame.create({ 
+            id: id,
+            name,
+            description,
+            released,
+            image,
+            rating,
+            platforms: [platforms],
+        
+        })
 
-            let videoGameCreate = await Videogame.create({ 
-                id: id,
-                name,
-                description,
-                released,
-                image,
-                rating,
-                platforms: [platforms],
-            
-            })
-            // let genreCreate = await Genre.create({ 
-            //     name: genre,  
-            // })
-            let genreDB = await Genre.findAll({ 
-                where: {name: genre}, 
-            })
-            videoGameCreate.addGenre(genreDB)
-            res.send('video juego creado')
-        // }
+        videoGameCreate.addGenre(genreDB)
+        res.send('VideoJuego Creado')
+
     }catch(error){
-        res.status(400).json({message: error?.message | 'El genero no existe'})
+        res.status(400).json({message: error})
     }
 })
-        
-    //         let conexionCreate = await videogame_genre.create({
-    //             videogameId: videoGameCreate.id,
-    //             genreId: genero.id
-    //         })
-    //     return res.json([videoGameCreate, {genre:genero}]);
-    //     }
-    // res.send("No se encontro el genero")
-//     }
-// })
 
 
 module.exports = router;
