@@ -9,25 +9,26 @@ const { v4: uuidv4 } = require('uuid');
 
 // GET https://api.rawg.io/api/games
 const getApiInfo = async () => {
-    let games = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`)
-    games = games.data.results
+    let gamesPageOne = axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`)
 
-    let gamesPageTwo = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=2`)
-    gamesPageTwo = gamesPageTwo.data.results
+    let gamesPageTwo = axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=2`)
 
-    let gamesPageTres = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=3`)
-    gamesPageTres = gamesPageTres.data.results
+    let gamesPageThree = axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=3`)
 
-    let gamesPageCuatro = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=4`)
-    gamesPageCuatro = gamesPageCuatro.data.results
+    let gamesPageFour = axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=4`)
 
-    let gamesPageCinco = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=5`)
-    gamesPageCinco = gamesPageCinco.data.results
+    let gamesPageFive = axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=5`)
 
-    games = games.concat(gamesPageTwo).concat(gamesPageTres).concat(gamesPageCuatro).concat(gamesPageCinco)
+    let date = await Promise.all([gamesPageOne, gamesPageTwo, gamesPageThree, gamesPageFour, gamesPageFive])
 
-    if (games.length > 0) {
-        let response = await games.map((result) => {
+    gamesPageOne = date[0].data.results;
+    gamesPageTwo = date[1].data.results;
+    gamesPageThree = date[2].data.results;
+    gamesPageFour = date[3].data.results;
+    gamesPageFive = date[4].data.results;
+
+    games = gamesPageOne.concat(gamesPageTwo).concat(gamesPageThree).concat(gamesPageFour).concat(gamesPageFive)
+    games = games.map((result) => {
             return {
                 id: result.id,
                 name: result.name,
@@ -39,8 +40,7 @@ const getApiInfo = async () => {
                 genres: result.genres.map(e => e.name),
             }        
         })
-        return response;
-    } 
+    return games;
 };
 
 
@@ -114,7 +114,7 @@ const getAllInfo = async () => {
 
 router.get('/database', async (req, res) => {
 
-    const gamesDB = await Videogame.findAll()
+    const gamesDB = await getDBInfo()
 
     res.json(gamesDB)
 })
@@ -132,7 +132,7 @@ router.get('/', async (req, res) => {
         }
         }
         catch(e){
-            res.send('No encontrado')
+            res.send('Juego no encontrado')
         }
 })
 
@@ -170,6 +170,13 @@ router.get('/:id', async (req, res) => {
             let juegoId = await Videogame.findOne({
                 where: {
                     id
+                },
+                include:{
+                    model: Genre,
+                    attributes: ['name'],
+                    through:{
+                        attributes: []
+                    }
                 }
             })
             return res.json(juegoId)
@@ -184,7 +191,7 @@ router.get('/:id', async (req, res) => {
 
 
 router.post('/', async (req, res) => {
-    let{
+    const{
         name,
         description,
         released,
@@ -193,14 +200,15 @@ router.post('/', async (req, res) => {
         platforms,
         genre, 
     } = req.body
+    try{ 
 
-    if(name && description && rating && genre){ 
-        const genero = await Genre.findOne({ 
-            where: { 
-                name: genre
-            }
-        })
-        if (genero){
+    // if(name && description && rating && genre){ 
+    //     const genero = await Genre.findOne({ 
+    //         where: { 
+    //             name: genre
+    //         }
+    //     })
+        // if (genero){
             let id = uuidv4()
 
             let videoGameCreate = await Videogame.create({ 
@@ -216,16 +224,26 @@ router.post('/', async (req, res) => {
             // let genreCreate = await Genre.create({ 
             //     name: genre,  
             // })
-        
-            let conexionCreate = await videogame_genre.create({
-                videogameId: videoGameCreate.id,
-                genreId: genero.id
+            let genreDB = await Genre.findAll({ 
+                where: {name: genre}, 
             })
-        return res.json([videoGameCreate, {genre:genero}]);
-        }
-    res.send("No se encontro el genero")
+            videoGameCreate.addGenre(genreDB)
+            res.send('video juego creado')
+        // }
+    }catch(error){
+        res.status(400).json({message: error?.message | 'El genero no existe'})
     }
 })
+        
+    //         let conexionCreate = await videogame_genre.create({
+    //             videogameId: videoGameCreate.id,
+    //             genreId: genero.id
+    //         })
+    //     return res.json([videoGameCreate, {genre:genero}]);
+    //     }
+    // res.send("No se encontro el genero")
+//     }
+// })
 
 
 module.exports = router;
