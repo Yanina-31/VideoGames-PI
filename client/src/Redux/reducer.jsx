@@ -18,12 +18,13 @@ const reducer = (state=initialStore, action) => {
 
         case buscar: return {
             ...state,
-            videoGames: action.payload/* .filter((e, i) => {
+            videoGames: action.payload
+            /* .filter((e, i) => {
                 if(i <= 15){
                     return e
                 }
             }), */,
-            fullGames: action.payload
+            // fullGames: action.payload
         }
 
         case buscarPorNombre: return {
@@ -49,7 +50,7 @@ const reducer = (state=initialStore, action) => {
 
         case gameByGenre: return {
           ...state,
-          gamesFilterByGenre: action.payload.filter((e) => {
+          videoGames: action.payload.filter((e) => {
 
               for(let i = 0; i < e.genres.length; i++){
                   if(e.genres[i] === action.name){
@@ -61,7 +62,7 @@ const reducer = (state=initialStore, action) => {
 
          case gameByRating: return {
              ...state,
-             gamesFilterByRating: action.descAsc === 'asc' ? 
+             videoGames: action.descAsc === 'Asc' ? 
              action.payload.sort(function(a, b) {
                 if (a.rating > b.rating) {
                   return 1;

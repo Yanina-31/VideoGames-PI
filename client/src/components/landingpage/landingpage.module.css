@@ -18,6 +18,9 @@
   .button:hover {
     background: #76c3f0;
   } */
+.NavLink{
+    text-decoration: none;
+}
 
 .yani{
     font-family: 'Press Start 2P', cursive;

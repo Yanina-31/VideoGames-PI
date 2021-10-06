@@ -5,7 +5,10 @@
     justify-content: center;
 }
 
-
+.NavLink{
+    text-decoration: none;
+    color: #7265e7;
+}
 .card{
     display: inline-flex;
     flex-wrap: wrap;
@@ -75,13 +78,14 @@
     /* width: 22em; */
     /* height: 22em; */
     transition: all 0.8s;
-    transform: translateY(60%);
+    transform: translateY(60%); 
     margin-left: 0em;
     margin-right: 0em;
-    margin-top:2em;
+    margin-top:0em;
     height: 150px;
     width: 250px;
     color:#c182eb;
+
 }
 .card:hover .cardLow{
     transform: translateY(-70%);

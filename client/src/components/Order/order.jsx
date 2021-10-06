@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import s from './order.module.css'
 import {ordenAlfabetico, buscarPorGenero, buscarPorRating} from '../../Redux/actions'
 
-function Order({ordenAlfabetico}){
+function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating }){
 
     let miRef = useRef(null);
     let GenRef = useRef(null);
@@ -13,7 +13,7 @@ function Order({ordenAlfabetico}){
         ordenAlfabetico(miRef.current.value)
     }
 
-    function OrderGenre(){
+    function OrderGenres(){
         buscarPorGenero(GenRef.current.value)
     }
     function OrderRating(){
@@ -40,8 +40,8 @@ function Order({ordenAlfabetico}){
                 </select>
             </div>
             <div className={s.containers}>
-                <label>Filter Genre</label>
-                <select className={s.select} ref={GenRef} onChange={OrderGenre}>
+                <label>Filter Genres</label>
+                <select className={s.select} ref={GenRef} onChange={OrderGenres}>
                 <option selected>All</option>
                     <option value="Action">Action</option>
                     <option value="Adventure">Adventure</option>
@@ -75,4 +75,4 @@ function Order({ordenAlfabetico}){
     )
 }
 
-export default connect (null, {ordenAlfabetico, buscarPorGenero})(Order)
+export default connect (null, {ordenAlfabetico, buscarPorGenero, buscarPorRating})(Order)
