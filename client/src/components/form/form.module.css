@@ -26,9 +26,9 @@
     top: 43px;
     right: 80px;
     border-radius: 10px;
-    background-color: #000000;
-    color: #FFF;
-    border: solid 1px #FFF;
+    background-color: #289bc817;
+    color: rgb(106, 202, 202);
+    border: solid 2px #c182eb;
     text-align: center;
     transition: 500ms;
 }
