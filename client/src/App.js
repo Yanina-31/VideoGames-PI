@@ -3,11 +3,13 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Card from './components/Card/card';
 import Nav from './components/Nav/nav.jsx'
-import LandingPage from './components/Landingpage/landingpage';
+import LandingPage from './components/Landingpage/landingpage.jsx';
 import Order from './components/Order/order';
 // import Home from './components/home/home.js';
-// import Form from './components/form/form.js';
+
 import Detail from './components/Detail/detail.jsx';
+import Paginado from './components/Paginado/paginado.jsx'
+// import Create from './components/Create/create.jsx'
 
 function App() {
   return (
@@ -19,9 +21,11 @@ function App() {
         <Switch>
         <Route exact path= '/app/home' component={Card}/>
           <Route exact path= '/' component={LandingPage}/>
-          {/* <Route path='/home' component={Home}/>      
-          <Route path='/create' component={Form}/> */}
+          <Route path='/app/home' component={Paginado}/>
+          {/* <Route path='/home' component={Home}/>*/}
           <Route path='/app/:id' component={Detail}/>
+          {/* <Route path='/app/create' component={Create}/> */}
+
         </Switch>
       </div>
     </BrowserRouter>

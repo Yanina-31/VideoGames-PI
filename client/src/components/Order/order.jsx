@@ -34,7 +34,7 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating }){
             <div className={s.containers}>
                 <label>Alphabetical Order</label>
                 <select className={s.select} ref={miRef} onChange={cambiarEstado}>
-                    <option selected>All</option>
+                    <option selected>Select</option>
                     <option value="A - Z">A - Z</option>
                     <option value="Z - A">Z - A</option>
                 </select>
@@ -42,7 +42,7 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating }){
             <div className={s.containers}>
                 <label>Filter Genres</label>
                 <select className={s.select} ref={GenRef} onChange={OrderGenres}>
-                <option selected>All</option>
+                <option selected>Select</option>
                     <option value="Action">Action</option>
                     <option value="Adventure">Adventure</option>
                     <option value="RPG">RPG</option>
@@ -66,9 +66,9 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating }){
             <div className={s.containers}>
                 <label>Filter Rating</label>
                 <select className={s.select} ref={RatRef} onChange={OrderRating}>
-                    <option selected >Default</option>
-                    <option value="Asc">Asc</option>
-                    <option value="Desc">Desc</option>
+                    <option selected >Select</option>
+                    <option value="Asc">Menor a Mayor</option>
+                    <option value="Desc">Mayor a Menor</option>
                 </select>
             </div>
         </div>

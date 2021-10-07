@@ -11,12 +11,12 @@ function Details({videogame}){
                 <div key={e.id}>
                     <div className={s.texts}>
                         <h1>{e.name}</h1>
-                        <img src={e.image} alt='Imagen dañada'/>
+                        <img className={s.detailImg} src={e.image} alt='Imagen dañada'/>
                         <p>Rating:  {e.rating}</p>
                         <p>Lanzamiento:  {e.released}</p>
-                        <p>Generos:  {e.genres}</p>
-                        <p>Plataformas:  {e.platforms}</p>
-                        {e.description}
+                        <p className={s.ctnGenresCard}> Genres: {e.genres.map(e=><span className={s.span}>{e}</span>)}</p>
+                        <p >Plataformas:  {e.platforms}</p>
+                        <p>Description:  {e.description}</p>
                     </div>
                 </div>)
             }

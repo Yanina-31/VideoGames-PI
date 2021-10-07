@@ -3,9 +3,14 @@
   text-align: center;
   justify-content: center;
   word-spacing: normal;
-  background-image: url('./assets/11111.jpg');
-  background-repeat: no-repeat;
+  background: url('./assets/11111.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+    /* background-size: cover;  */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
 }
   /* background-size: cover;
   background-repeat: no-repeat;
@@ -23,6 +28,13 @@ body {
     height: 100vh;
     width: 100vw; 
     flex-direction: center;
+}
+    /* background: url('/home/jesuan/Documentos/PI (Proyecto Individual)/PI-Videogames-main/client/src/components/images/1132186.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+
     /* position: auto; */
     /* height: 120vh;
     width: 80vw; 
@@ -31,7 +43,7 @@ body {
     margin-right: 100;
     margin-bottom: 100;
     padding-top:0;  */
-}
+
   /* background-image: url(); */
   /* background-size: cover;
   background-repeat: no-repeat;

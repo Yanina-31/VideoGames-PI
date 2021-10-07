@@ -67,7 +67,7 @@
 }
 
 .detailImg{
-    width: 40%;
+    width: 900px;
     height: 500px;
     margin-right: 50px;
     box-shadow:rgb(170, 239, 248);
@@ -79,6 +79,9 @@
 .detailName{
     color: rgb(170, 239, 248);
     font-size: 40px;
+}
+.span{
+    margin: 0em 0.5em
 }
 .ctnGenre{
     margin-right: 50px;
