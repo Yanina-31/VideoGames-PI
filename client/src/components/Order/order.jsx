@@ -67,8 +67,8 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating }){
                 <label>Filter Rating</label>
                 <select className={s.select} ref={RatRef} onChange={OrderRating}>
                     <option selected >Select</option>
-                    <option value="Asc">Menor a Mayor</option>
-                    <option value="Desc">Mayor a Menor</option>
+                    <option value="Asc">Lower Score</option>
+                    <option value="Desc">Higher Score</option>
                 </select>
             </div>
         </div>

@@ -4,7 +4,7 @@ import {searchGames,gameById} from '../../Redux/actions.jsx';
 import s from './card.module.css'
 import {NavLink} from 'react-router-dom';
 import Paginado from '../Paginado/paginado.jsx'
-
+import loading from '../../assets/pacman1111.gif'
 
 
 function Card({searchGames, videogames, name, gameById}){
@@ -31,7 +31,7 @@ function Card({searchGames, videogames, name, gameById}){
         <div>
         <div className={s.cards}>
             { 
-                // videogames.length ? videogames.map(e =>
+            videogames.length ? videogames.map(e =>
             games.map(e=> <div className={s.card} onClick={()=>gameById(e.id)}>
                <NavLink className={s.NavLink} to={`/app/${e.id}`}>
                <p className={s.title}>{e.name}</p>
@@ -42,7 +42,9 @@ function Card({searchGames, videogames, name, gameById}){
                     <p className={s.ctnGenresCard}> Rating: {e.rating}</p>
                     </div></NavLink>
                </div>)
-                // ):<img src={loading} alt='Gif Cargando'/>
+            ):<div className={s.contLoading}>
+            <img src={loading} alt='Gif Cargando' className={s.loading}/>
+            </div>
             } 
         </div>
         <Paginado totalPages={totalPages} totalVideogames={totalVideogames} pages={pages}/>
