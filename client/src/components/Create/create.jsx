@@ -3,8 +3,11 @@ import React, {useState} from "react";
 import s from './create.module.css';
 import { connect } from "react-redux";
 import {submitPost} from "../../Redux/actions.jsx";
+import {useHistory} from 'react-router-dom'
 
-function Create({submitPost, genres, platforms}){
+function Create({submitPost}){
+
+    
    
     // const handleClick= ()=>{
     //     const yani = {
@@ -26,10 +29,12 @@ function Create({submitPost, genres, platforms}){
         released: '',
         rating: 0,
         image: '',
-        genres: [],
+        genre: [],
         platforms: [],
         description: ''
     })
+
+    let myHistory = useHistory()
 
     function handleChange(e){
         setState({
@@ -49,7 +54,7 @@ function Create({submitPost, genres, platforms}){
         setState({
             ...state,
             // genre: [e.target.value]
-            genres: state.genres.includes(e.target.value) ? state.genres.filter(el => el !== e.target.value) : state.genres.concat(e.target.value)
+            genre: state.genre.includes(e.target.value) ? state.genre.filter(el => el !== e.target.value) : state.genre.concat(e.target.value)
         })
         // console.log(state)
     }
@@ -70,30 +75,32 @@ function Create({submitPost, genres, platforms}){
     const handleSubmit = async (e) => {
         e.preventDefault()
         if(state.name == ''){
-            return alert("Falta el nombre")
+            return alert("Missing add the name" + " " + "(Falta agregar el nombre)")
         }
         if(state.released == ''){
-            return alert("Falta la fecha de lanzamiento de juego")
+            return alert("Missing add game release date" + " " + "(Falta agregar la fecha de lanzamiento de juego)")
         }
-        if(state.rating == 0 || state.rating == '' || state.rating < 1 || state.rating > 5){
-            return alert("El rating debe ser entre 1 y 5")
+        if(state.rating == 0 || state.rating == '' || state.rating < 1 || state.rating > 5 || state.rating == NaN){
+            return alert("The rating must be between 1 and 5" +  " " + "(El rating debe ser entre 1 y 5)")
         }
         if(state.image == ''){
-            return alert("Falta la imagen")
+            return alert("Missing add the URL of the image" + " " + "(Falta agregar el URL de la imagen)")
         }
         if(state.description == '' || state.description.length < 15){
-            if(state.description == '') return alert("Falta la descripción")
-            if(state.description.length < 15) return alert("La descripcióin debe tener al menos 15 caracteres")
+            if(state.description == '') return alert("Missing add description" + " " + "(Falta agregar descripción)")
+            if(state.description.length < 15) return alert("Description must be at least 15 characters" + " " + "(La descripción debe tener al menos 15 caracteres)")
         }
-        if(state.genres == ''){
-            return alert("Faltan los generos")
+        if(state.genre == ''){
+            return alert("Need to add genres" + " " + "(Faltan agregar generos)")
         }
-        if(state.platforms == ''){
-            return alert("Faltan las plataformas")
-        }
+        // if(state.platforms == ''){
+        //     return alert("Add platforms" + " " + "(Falta agregar plataformas)")
+        // }
         // const game = state
         await submitPost(state)
         console.log(state)
+        myHistory.push("/app/home")
+        alert("The game was created" + " " + "(Se creo el juego)")
     }
 
     return (
@@ -118,7 +125,7 @@ function Create({submitPost, genres, platforms}){
 
                     <div className={s.rating}>
                         <label>Rating: </label>
-                        <input type="number" name="rating" className={s.input} onChange={(e)=>handleRating(e)} />
+                        <input type="text" name="rating" className={s.input} onChange={(e)=>handleRating(e)} />
                     </div>
 
 
@@ -133,51 +140,49 @@ function Create({submitPost, genres, platforms}){
                     </div>
 
                     
-                    <div className={s.genres}>
+                    <div className={s.genre}>
                         <label>Genres: </label>
-                       
-                        <div className={s.gen}><input value="Action" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Action</label></div>
-                        <div className={s.gen}><input value="Indie" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Indie</label></div>
-                        <div className={s.gen}><input value="Strategy" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Strategy</label></div>
-                        <div className={s.gen}><input value="Adventure" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Adventure</label></div>
-                        <div className={s.gen}><input value="RPG" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>RPG</label></div>
-                        <div className={s.gen}><input value="Shooter"type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Shooter</label></div>
-                        <div className={s.gen}><input value="Casual" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Casual</label></div>
-                        <div className={s.gen}><input value="Simulation"type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Simulation</label></div>
-                        <div className={s.gen}><input value="Arcade" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Arcade</label></div>
-                        <div className={s.gen}><input value="Puzzle" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Puzzle</label></div>
-                        <div className={s.gen}><input value="Platformer" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Platformer</label></div>
-                        <div className={s.gen}><input value="Racing" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Racing</label></div>
-                        <div className={s.gen}><input value="Massively Multiplayer" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Massively Multiplayer</label></div>
-                        <div className={s.gen}><input value="Fighting" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Fighting</label></div>
-                        <div className={s.gen}><input value="Sports" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Sports</label></div>
-                        <div className={s.gen}><input value="Family" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Family</label></div>
-                        <div className={s.gen}><input value="Board Games" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Board Games</label></div>
-                        <div className={s.gen}><input value="Educational" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Educational</label></div>
-                        <div className={s.gen}><input value="Card" type="checkbox" name="genres" onChange={(evt)=>handleGenres(evt)}/><label>Card</label></div>
+                        <div className={s.gen}><input value="Action" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Action</label></div>
+                        <div className={s.gen}><input value="Indie" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Indie</label></div>
+                        <div className={s.gen}><input value="Strategy" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Strategy</label></div>
+                        <div className={s.gen}><input value="Adventure" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Adventure</label></div>
+                        <div className={s.gen}><input value="RPG" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>RPG</label></div>
+                        <div className={s.gen}><input value="Shooter"type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Shooter</label></div>
+                        <div className={s.gen}><input value="Casual" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Casual</label></div>
+                        <div className={s.gen}><input value="Simulation"type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Simulation</label></div>
+                        <div className={s.gen}><input value="Arcade" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Arcade</label></div>
+                        <div className={s.gen}><input value="Puzzle" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Puzzle</label></div>
+                        <div className={s.gen}><input value="Platformer" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Platformer</label></div>
+                        <div className={s.gen}><input value="Racing" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Racing</label></div>
+                        <div className={s.gen}><input value="Massively Multiplayer" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Massively Multiplayer</label></div>
+                        <div className={s.gen}><input value="Fighting" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Fighting</label></div>
+                        <div className={s.gen}><input value="Sports" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Sports</label></div>
+                        <div className={s.gen}><input value="Family" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Family</label></div>
+                        <div className={s.gen}><input value="Board Games" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Board Games</label></div>
+                        <div className={s.gen}><input value="Educational" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Educational</label></div>
+                        <div className={s.gen}><input value="Card" type="checkbox" name="genre" onChange={(e)=>handleGenres(e)}/><label>Card</label></div>
                     </div>
 
                     <div className={s.platforms}> 
                         <label>Platforms: </label>
-                        <div className={s.pla}><input value="PS4" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>PS4</label></div>
-                        <div className={s.pla}><input value="PS5" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>PS5</label></div>
+                        <div className={s.pla}><input value="PlayStation 4" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>PS4</label></div>
+                        <div className={s.pla}><input value="PlayStation 5" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>PS5</label></div>
                         <div className={s.pla}><input value="PC" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>PC</label></div>
                         <div className={s.pla}><input value="SEGA" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>SEGA</label></div>
                         <div className={s.pla}><input value="NINTENDO 64" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>NINTENDO 64</label></div>
-                        <div className={s.pla}><input value="NINTENDO SWITCH" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>NINTENDO SWITCH</label></div>
+                        <div className={s.pla}><input value="Nintendo Switch" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>NINTENDO SWITCH</label></div>
                         <div className={s.pla}><input value="ATARI" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>ATARI</label></div>
-                        <div className={s.pla}><input value="XBOX ONE" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>XBOX ONE</label></div>
-                        <div className={s.pla}><input value="XBOX X" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>XBOX X</label></div>
+                        <div className={s.pla}><input value="Xbox One" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>XBOX ONE</label></div>
+                        <div className={s.pla}><input value="Xbox 360" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>XBOX X</label></div>
                         <div className={s.pla}><input value="GAME BOY ADVANCED" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>GAME BOY ADVANCED</label></div>
                         <div className={s.pla}><input value="IOS" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>IOS</label></div>
-                        <div className={s.pla}><input value="LINUX" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>LINUX</label></div>
-                        <div className={s.pla}><input value="ANDROID" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>ANDROID</label></div>
+                        <div className={s.pla}><input value="Linux" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>LINUX</label></div>
+                        <div className={s.pla}><input value="Android" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>ANDROID</label></div>
                         <div className={s.pla}><input value="WEB" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>WEB</label></div>
-                        <div className={s.pla}><input value="PLAYSTATION" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>PLAYSTATION</label></div>
-                         
+                        <div className={s.pla}><input value="PlayStation" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>PLAYSTATION</label></div>
                     </div>
 
-                    <div className={s.info}></div>
+                    {/* <div className={s.info}></div> */}
 
                 </div>
                 <button  type='submit' className={s.button}>Create Game</button>
