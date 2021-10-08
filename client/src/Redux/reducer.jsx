@@ -55,7 +55,7 @@ const reducer = (state=initialStore, action) => {
           videoGames: action.payload.filter((e) => {
 
               for(let i = 0; i < e.genres.length; i++){
-                  if(e.genres[i] === action.name){
+                  if(e.genres[i].name === action.name){
                       return e
                   }
               }

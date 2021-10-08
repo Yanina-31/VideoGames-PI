@@ -1,7 +1,7 @@
 import React from "react";
 import s from './paginado.module.css';
 
-export default function Paginado({pages, totalPages, totalVideogames}){
+export default function Paginado({pages, totalPages, totalVideogames, currentPage}){
 
     let arrPages = [];
 

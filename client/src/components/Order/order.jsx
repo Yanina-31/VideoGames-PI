@@ -35,15 +35,15 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase
                     <option value="api">Api</option>
                 </select> */}
                 <select className={s.select} ref={BaseRef} onChange={OrderDataBase}>
-                <option selected>Select</option>
+                <option disabled selected>Select</option>
                 <option>Yes</option>
-                {/* <option>No</option> */}
+                <option>All</option>
                 </select>
             </div>
             <div className={s.containers}>
                 <label>Alphabetical Order</label>
                 <select className={s.select} ref={miRef} onChange={cambiarEstado}>
-                    <option selected>Select</option>
+                    <option disabled selected>Select</option>
                     <option value="A - Z">A - Z</option>
                     <option value="Z - A">Z - A</option>
                 </select>
@@ -51,7 +51,7 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase
             <div className={s.containers}>
                 <label>Filter Genres</label>
                 <select className={s.select} ref={GenRef} onChange={OrderGenres}>
-                <option selected>Select</option>
+                <option disabled selected>Select</option>
                     <option value="Action">Action</option>
                     <option value="Indie">Indie</option>
                     <option value="Strategy">Strategy</option>
@@ -76,7 +76,7 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase
             <div className={s.containers}>
                 <label>Filter Rating</label>
                 <select className={s.select} ref={RatRef} onChange={OrderRating}>
-                    <option selected >Select</option>
+                    <option disabled selected >Select</option>
                     <option value="Asc">Lower Score</option>
                     <option value="Desc">Higher Score</option>
                 </select>
