@@ -8,6 +8,15 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  /* display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+		padding: 50px;
+		grid-gap: 20px;
+		justify-content: center; */
+
+
+
     /* background-size: cover;  */
   /* background-repeat: no-repeat; */
   /* background-size: cover; */
@@ -70,6 +79,11 @@ body {
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+    display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		padding: 50px;
+		grid-gap: 20px;
+		justify-content: center;
   }
 }
 

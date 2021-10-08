@@ -1,13 +1,14 @@
 import React, {useRef} from "react";
 import {connect} from 'react-redux'
 import s from './order.module.css'
-import {ordenAlfabetico, buscarPorGenero, buscarPorRating} from '../../Redux/actions'
+import {ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase} from '../../Redux/actions'
 
-function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating }){
+function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase }){
 
     let miRef = useRef(null);
     let GenRef = useRef(null);
     let RatRef = useRef(null);
+    let BaseRef = useRef(null);
 
     function cambiarEstado(){
         ordenAlfabetico(miRef.current.value)
@@ -19,16 +20,24 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating }){
     function OrderRating(){
         buscarPorRating(RatRef.current.value)
     }
+    function OrderDataBase(){
+        gamesDatabase(BaseRef.current.value)
+    }
 
 
     return (
         <div className={s.container}>
             <div className={s.containers}>
-                <label>Filter Origin</label>
-                <select className={s.select}>
+                <label>Filter Data Base</label>
+                {/* <select className={s.select}>
                     <option className={s.inputOrder} selected>All</option>
                     <option value="creados">Created</option>
                     <option value="api">Api</option>
+                </select> */}
+                <select className={s.select} ref={BaseRef} onChange={OrderDataBase}>
+                <option selected>Select</option>
+                <option>Yes</option>
+                {/* <option>No</option> */}
                 </select>
             </div>
             <div className={s.containers}>
@@ -44,19 +53,20 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating }){
                 <select className={s.select} ref={GenRef} onChange={OrderGenres}>
                 <option selected>Select</option>
                     <option value="Action">Action</option>
+                    <option value="Indie">Indie</option>
+                    <option value="Strategy">Strategy</option>
                     <option value="Adventure">Adventure</option>
                     <option value="RPG">RPG</option>
-                    <option value="Strategy">Strategy</option>
                     <option value="Shooter">Shooter</option>
                     <option value="Casual">Casual</option>
                     <option value="Simulation">Simulation</option>
-                    <option value="Puzzle">Puzzle</option>
                     <option value="Arcade">Arcade</option>
+                    <option value="Puzzle">Puzzle</option>
                     <option value="Platformer">Platformer</option>
                     <option value="Racing">Racing</option>
                     <option value="Massively Multiplayer">Massively Multiplayer</option>
-                    <option value="Sports">Sports</option>
                     <option value="Fighting">Fighting</option>
+                    <option value="Sports">Sports</option>
                     <option value="Family">Family</option>
                     <option value="Board Games">Board Games</option>
                     <option value="Educational">Educational</option>
@@ -75,4 +85,4 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating }){
     )
 }
 
-export default connect (null, {ordenAlfabetico, buscarPorGenero, buscarPorRating})(Order)
+export default connect (null, {ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase})(Order)

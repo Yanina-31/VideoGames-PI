@@ -13,9 +13,11 @@ function Details({videogame}){
                         <h1>{e.name}</h1>
                         <img className={s.detailImg} src={e.image} alt='Imagen dañada'/>
                         <p>Rating:  {e.rating}</p>
-                        <p>Lanzamiento:  {e.released}</p>
-                        <p className={s.ctnGenresCard}> Genres: {e.genres.map(e=><span className={s.span}>{e}</span>)}</p>
-                        <p >Plataformas:  {e.platforms}</p>
+                        <p>Released:  {e.released}</p>
+                        <p className={s.genres}><span> Genres: </span> {e.genres.map((el, i) => { if(i < 3)return <span className={s.genres} key={i}>{el.name}</span>})}</p>
+                        {/* <p className={s.ctnGenresCard}> Genres: {e.genres.map(e=><span className={s.span}>{e}</span>)}</p>  */}
+                        <p>Platforms:  {e.platforms}</p>
+                        {/* <p>Platforms:  {e.platforms.map((e, i) => <span key={i+100}>{e.platforms.name}</span>)}</p> */}
                         <p>Description:  {e.description}</p>
                     </div>
                 </div>)

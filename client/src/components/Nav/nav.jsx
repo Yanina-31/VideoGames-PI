@@ -3,6 +3,7 @@ import {searchByName} from '../../Redux/actions'
 import {useDispatch} from 'react-redux';
 import s from './nav.module.css';
 import logo from '../../assets/logo4.png';
+import {NavLink} from 'react-router-dom'
 
 export default function Nav (){
     const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export default function Nav (){
             </a>
               <input className={s.inputSearch} type ="text" placeholder= "Search..." ref= {miRef} onChange={()=>buscar()}/>
               <button className={s.buttonSearch} onClick={handleClick}>Search</button>
+              <NavLink to='/app/home/create' className={s.buttonCreate}>Create Videogames</NavLink>
           </div>
       </div>
     )

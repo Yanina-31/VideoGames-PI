@@ -42,6 +42,14 @@
     flex-direction: center;
 
 }
+
+.container{
+    margin-top: -1.5em; 
+    color:rgb(170, 239, 248);
+    background: linear-gradient(0deg, rgb(109, 23, 131) 20%, rgb(240, 147, 234) 30%, rgb(15, 193, 238) 60%, rgb(240, 147, 234) 90%);
+    /* color:rgb(109, 23, 131); */
+    
+}
 .backHome{
     backdrop-filter: blur(5px);
     width: 100px;

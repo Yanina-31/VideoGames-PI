@@ -38,12 +38,13 @@ function Card({searchGames, videogames, name, gameById}){
                <img className={s.image} src={e.image} alt='Imagen de videogames'/>
                <p className={s.ctnGenresCard}>Release: {e.released}</p>  
                  <div className={s.cardLow}>
-                    <p className={s.ctnGenresCard}> Genres: {e.genres.map(e=><span className={s.span}>{e}</span>)}</p> 
+                 <p className={s.genres}><span> Genres: </span> {e.genres.map((el, i) => { if(i < 3)return <span className={s.genres} key={i}>{el.name}</span>})}</p>
+                    {/* <p className={s.ctnGenresCard}> Genres: {e.genres.map(e=><span className={s.span}>{e}</span>)}</p>  */}
                     <p className={s.ctnGenresCard}> Rating: {e.rating}</p>
                     </div></NavLink>
                </div>)
             ):<div className={s.contLoading}>
-            <img src={loading} alt='Gif Cargando' className={s.loading}/>
+                <img src={loading} alt='Gif Cargando' className={s.loading}/>
             </div>
             } 
         </div>

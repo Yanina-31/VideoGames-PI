@@ -13,7 +13,7 @@ export default function Paginado({pages, totalPages, totalVideogames}){
         let currentScroll = document.documentElement.scrollTop;
         if (currentScroll > 0) {
             window.requestAnimationFrame(scrollUp)
-            window.scrollTo (0, currentScroll - (currentScroll / 5));
+            window.scrollTo (0, currentScroll - (currentScroll / 1));
         }
     }
 
