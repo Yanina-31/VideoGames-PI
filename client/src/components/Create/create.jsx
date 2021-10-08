@@ -133,12 +133,6 @@ function Create({submitPost}){
                         <label>Image url: </label>
                         <input type="url" name="image" className={s.input} onChange={(e)=>handleChange(e)} />
                     </div>
-
-                    <div className={s.description}>
-                        <label>Description: </label>
-                        <textarea type="text" name="description" cols="40" rows="6" className={s.input} onChange={(e)=>handleChange(e)} />
-                    </div>
-
                     
                     <div className={s.genre}>
                         <label>Genres: </label>
@@ -180,6 +174,12 @@ function Create({submitPost}){
                         <div className={s.pla}><input value="Android" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>ANDROID</label></div>
                         <div className={s.pla}><input value="WEB" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>WEB</label></div>
                         <div className={s.pla}><input value="PlayStation" type="checkbox" name="platforms" onChange={(e)=>handlePlatforms(e)}/><label>PLAYSTATION</label></div>
+                    </div>
+                    <div className={s.description}>
+                        <label>Description: </label>
+                        <div>
+                            <textarea type="text" name="description" cols="40" rows="6" className={s.desc} onChange={(e)=>handleChange(e)} />
+                        </div>
                     </div>
 
                     {/* <div className={s.info}></div> */}
