@@ -4,10 +4,10 @@
     flex-direction: row;
     justify-content: center;
     /* border-radius: 20px; */
-    background-color:rgb(109, 23, 131);
+    /* background-color:rgb(109, 23, 131); */
     color:rgb(240, 147, 234);
-    background: #289bc8ed;
-    background: linear-gradient(0deg, rgb(15, 193, 238) 10%, rgb(240, 147, 234)  100%);
+    background: #a6c1ee;
+    background: linear-gradient(to top,#a6c1ee 10%, #fbc2eb 100%);
 }
 .inputOrder{
     width:100%;

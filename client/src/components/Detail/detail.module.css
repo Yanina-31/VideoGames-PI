@@ -1,5 +1,7 @@
 .detailBackground{
-    background: linear-gradient(0deg, rgb(240, 147, 234) 10%, rgb(109, 23, 131) 30%);;
+    color:rgb(240, 147, 234);
+    background: #a6c1ee;
+    background: linear-gradient(to top,#a6c1ee 10%, #fbc2eb 100%);
     /* background: radial-gradient(circle, rgba(240,240,240,1) 0%, 
                                         rgba(245,245,245,1) 23%, 
                                         rgba(245,245,245,1) 52%, 
@@ -26,7 +28,9 @@
     align-items: center;
     justify-content: center;
     padding-top: 10px;
-    background: linear-gradient(0deg, rgb(240, 147, 234) 10%, rgb(109, 23, 131) 30%);
+    color:rgb(240, 147, 234);
+    background: #a6c1ee;
+    background: linear-gradient(to top,#a6c1ee 10%, #fbc2eb 100%);
 }
 .ctnDetail{
     display:flex;
@@ -45,9 +49,12 @@
 
 .container{
     margin-top: -1.5em; 
-    color:rgb(170, 239, 248);
-    background: linear-gradient(0deg, rgb(109, 23, 131) 20%, rgb(240, 147, 234) 30%, rgb(15, 193, 238) 60%, rgb(240, 147, 234) 90%);
-    /* color:rgb(109, 23, 131); */
+    color:rgb(109, 23, 131);
+    background: #a6c1ee;
+    background: linear-gradient(to top,#a6c1ee 10%, #fbc2eb 100%);
+    /* color:rgb(170, 239, 248);
+    background: linear-gradient(0deg, rgb(109, 23, 131) 20%, rgb(240, 147, 234) 30%, rgb(15, 193, 238) 60%, rgb(240, 147, 234) 90%); 
+    color:rgb(109, 23, 131); */
     
 }
 .backHome{
@@ -139,6 +146,7 @@
 .ctnDescription{
     padding: 40px;
     color: #dba8eb;
+    
 }
 .titleDescription{
     font-size: 25px;
@@ -147,4 +155,8 @@
 .detailDescription{
     font-size: 18px;
     color: #dba8eb;
+    
+}
+.text{
+    margin-bottom:4em;
 }

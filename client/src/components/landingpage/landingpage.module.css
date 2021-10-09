@@ -28,13 +28,19 @@
     display: flex;
     height: 100px;
     background-clip: border-box;
-    color: rgb(99, 19, 173);
-    margin-left: 10%;
+    color:#dba8eb;
+    background: linear-gradient(0deg, rgb(15, 193, 238) 10%, rgb(240, 147, 234)  100%);
+    /* background-color: #289bc817; */
+    color: rgb(106, 202, 202);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 0%;
     margin-right: 40%;
     margin-top: 10%;  
     /* background: linear-gradient(0deg, rgb(240, 147, 234) 10%, rgb(109, 23, 131) 30%); */
     align-items: center;
     justify-content: center;
+    font-size: 35px ;
   }
 .landing {
     font-family: 'Press Start 2P', cursive;
@@ -58,7 +64,7 @@
     font-family: 'Press Start 2P', cursive;
     position: static;
     display: flex;
-    height: 70px;
+    height: 90px;
     background-clip: border-box;
     background-color: rgb(170, 239, 248);
     color:#dba8eb;

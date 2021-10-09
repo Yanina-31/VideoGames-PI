@@ -107,8 +107,11 @@
 }
 
 .contLoading{
-    color:rgb(15, 193, 238);
-    background: linear-gradient(0deg, rgb(109, 23, 131) 50%, rgb(240, 147, 234) 60%, rgb(15, 193, 238) 90%);
+    color:rgb(109, 23, 131);
+    background: #a6c1ee;
+    background: linear-gradient(to top,#fbc2eb 10%,  #a6c1ee 100%);
+    /* color:rgb(15, 193, 238);
+    background: linear-gradient(0deg, rgb(109, 23, 131) 50%, rgb(240, 147, 234) 60%, rgb(15, 193, 238) 90%); */
     height: 700px;
     width: 1200px;
 }
