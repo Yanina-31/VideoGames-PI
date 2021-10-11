@@ -24,10 +24,10 @@ export default function Nav (){
     return (
       <div>
           <div className={s.navBar}>
-            <a href='http://localhost:3000/app/home'>
             <a href='http://localhost:3000'>
                 <img className={s.inicio} src={inicio} alt='not found' />
             </a>
+            <a href='http://localhost:3000/app/home'>
                 <img className={s.logo} src={logo} alt='logo not found' />
             </a>
               <input className={s.inputSearch} type ="text" placeholder= "Search..." ref= {miRef} onChange={()=>buscar()}/>
