@@ -5,10 +5,7 @@ import { connect } from "react-redux";
 import {submitPost} from "../../Redux/actions.jsx";
 import {useHistory} from 'react-router-dom'
 
-function Create({submitPost}){
-
-    
-   
+function Create({submitPost}){   
     // const handleClick= ()=>{
     //     const yani = {
             
@@ -93,9 +90,9 @@ function Create({submitPost}){
         if(state.genre == ''){
             return alert("Need to add genres" + " " + "(Faltan agregar generos)")
         }
-        // if(state.platforms == ''){
-        //     return alert("Add platforms" + " " + "(Falta agregar plataformas)")
-        // }
+        if(state.platforms == ''){
+            return alert("Add platforms" + " " + "(Falta agregar plataformas)")
+        }
         // const game = state
         await submitPost(state)
         console.log(state)
@@ -181,13 +178,9 @@ function Create({submitPost}){
                             <textarea type="text" name="description" cols="40" rows="6" className={s.desc} onChange={(e)=>handleChange(e)} />
                         </div>
                     </div>
-
+                    <button  type='submit' className={s.button}>Create Game</button>
                     {/* <div className={s.info}></div> */}
-
                 </div>
-                <button  type='submit' className={s.button}>Create Game</button>
-                {/* <NavLink className={s.NavLink} to='/app/home'>Back</NavLink> */}
-
             </form>
         </div>
     )

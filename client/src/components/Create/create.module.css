@@ -9,16 +9,19 @@
     /* background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
     color: rgb(106, 202, 202);
     box-shadow: 0px 5px #8c40ca; */
-    margin-bottom: 2em;
-    margin-top: 2em;
-    margin-left: 2em;
+    /* margin-bottom: 4em; */
+    /* margin-top: 2em;
+    margin-left: 2em; */
     text-decoration: none;
     /* border: solid 2px #c182eb; */
     background-image: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
     color: rgb(109, 23, 131);
     box-shadow: 0px 5px #8c40ca;
-    border: solid 2px #c182eb
-    
+    border: solid 2px #c182eb;
+    position:absolute;
+    bottom: 80px;
+    right: 50px;
+
 }
 .button:hover{
     color: rgba(17, 169, 207, 0.842);
@@ -55,7 +58,9 @@
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     border: 2px solid #8c40ca;
     border-radius:20px;
-    margin: 1em 0em 0em 0em;
+    margin: 0em 0em 0em 0em;
+    margin-bottom:0.5em;
+    margin-top:0.5em;
     width: 45em;
     height: 48em;
     color: rgb(42, 170, 187);

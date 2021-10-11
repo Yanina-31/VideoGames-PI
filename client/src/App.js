@@ -16,14 +16,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
       <Route path= '/app/' component={Nav}/> 
-      <Route path= '/app/home' component={Order}/>
-      <Route path='/app/home/create' component={Create}/>
+      <Route exact path= '/app/home' component={Order}/>
+      <Route exact path='/app/home/create' component={Create}/>
         <Switch>
-        <Route exact path= '/app/home' component={Card}/>
+          <Route exact path= '/app/home' component={Card}/>
           <Route exact path= '/' component={LandingPage}/>
           <Route path='/app/home' component={Paginado}/>
           {/* <Route path='/home' component={Home}/>*/}
-          <Route path='/app/:id' component={Detail}/>
+          <Route exact path='/app/:id' component={Detail}/>
         </Switch>
       </div>
     </BrowserRouter>
