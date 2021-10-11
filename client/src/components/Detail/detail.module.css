@@ -82,13 +82,20 @@
 }
 
 .detailImg{
-    width: 900px;
-    height: 500px;
-    margin-right: 50px;
+    /* width: 900px;
+    height: 500px; */
+    /* margin-right: 50px; */
     box-shadow:rgb(170, 239, 248);
-    border-radius: 40px;
+    /* border-radius: 30px; */
     border-style: 40px solid;
     border: solid 2px #c182eb;
+    margin-bottom:1em;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    opacity:0.5;
+    float:left;
+    box-shadow: 0px 5px #8c40ca;
     
 }
 .detailName{
@@ -153,8 +160,12 @@
     color: rgb(170, 239, 248);
 }
 .detailDescription{
-    font-size: 18px;
-    color: #dba8eb;
+    font-size: 16px;
+    color: rgb(109, 23, 131);
+    margin-bottom: 4em;
+    margin-left: 1em;
+    margin-right: 1em;
+    
     
 }
 .text{

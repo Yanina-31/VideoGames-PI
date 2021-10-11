@@ -4,6 +4,7 @@
   justify-content: center;
   word-spacing: normal;
   background: url('./assets/123456.jpg') no-repeat center center fixed;
+  /* opacity:0.5; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

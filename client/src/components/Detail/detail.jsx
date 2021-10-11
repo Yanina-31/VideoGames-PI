@@ -18,7 +18,7 @@ function Details({videogame}){
                         <p className={s.ctnGenresCard}> Genres: {e.genres.map(ele=><><span className={s.span}>{ele.name}</span></>)}</p> 
                         <p>Platforms:  {e.platforms.map(el => <span className={s.span}>{el}</span>) }</p>
                         {/* <p>Platforms:  {e.platforms.map((e, i) => <span key={i+100}>{e.platforms.name}</span>)}</p> */}
-                        <p>Description:  {e.description}</p>
+                        <p className={s.detailDescription}>Description:  {e.description}</p>
                     </div>
                 </div>)
             }
