@@ -2,7 +2,8 @@ import React,{useState, useRef} from "react";
 import {searchByName} from '../../Redux/actions'
 import {useDispatch} from 'react-redux';
 import s from './nav.module.css';
-import logo from '../../assets/logo4.png';
+import logo from '../../assets/imagen.jfif';
+import inicio from '../../assets/comenzamos1.jpg'
 import {NavLink} from 'react-router-dom'
 
 export default function Nav (){
@@ -24,6 +25,9 @@ export default function Nav (){
       <div>
           <div className={s.navBar}>
             <a href='http://localhost:3000/app/home'>
+            <a href='http://localhost:3000'>
+                <img className={s.inicio} src={inicio} alt='not found' />
+            </a>
                 <img className={s.logo} src={logo} alt='logo not found' />
             </a>
               <input className={s.inputSearch} type ="text" placeholder= "Search..." ref= {miRef} onChange={()=>buscar()}/>
