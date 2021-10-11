@@ -72,7 +72,7 @@
     /* background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%); */
     /* background: linear-gradient(0deg, rgb(15, 193, 238) 10%, rgb(240, 147, 234)  100%); */
     /* background-color: #289bc817; */
-    color: rgb(106, 202, 202);
+    color: rgb(16, 192, 192);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     align-items: center;
@@ -81,6 +81,7 @@
     margin-right: 40%;
     margin-top: 10%;
     padding: 50px;
+    border-radius: 30%;
     font-size: 80px ;
     transition: 500ms;
 }
