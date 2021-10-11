@@ -17,22 +17,22 @@
     padding: 10px;
     border: none;
     outline: 0;
-    background-color: rgb(109, 23, 131);
-    color: rgb(106, 202, 202);
+    background-color:#fbc2eb;
+    color: rgba(17, 169, 207, 0.842);
 }
 
 .select{
-    color: rgb(106, 202, 202);
+    color: rgba(17, 169, 207, 0.842);      
     margin: 1em 3em;
     width: 8em;
     /* background-color: rgba(135, 50, 231, 0.164); */
     /* outline: none; */
     border: none;
-    background-color: rgb(109, 23, 131);
+    background-color: #fbc2eb;
 }
 
 .select option{
-    background-color:rgb(109, 23, 131)
+    background-color:#fbc2eb;
 }
 
 .containers{
@@ -40,7 +40,7 @@
     flex-direction: column;
     height: 3.5em;
     border-radius: 10px;
-    background-color: rgb(170, 239, 248);
+    background-image: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
     /* background-color: #289bc817; */
     /* color: rgb(106, 202, 202); */
     border: solid 2px #c182eb;

@@ -64,11 +64,13 @@
     font-family: 'Press Start 2P', cursive;
     position: static;
     display: flex;
-    height: 90px;
+    height: 80px;
     background-clip: border-box;
-    background-color: rgb(170, 239, 248);
-    color:#dba8eb;
+    /* background-color: rgb(170, 239, 248); */
+    color:#c856eb;
     background: linear-gradient(0deg, rgb(15, 193, 238) 10%, rgb(240, 147, 234)  100%);
+    /* background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%); */
+    /* background: linear-gradient(0deg, rgb(15, 193, 238) 10%, rgb(240, 147, 234)  100%); */
     /* background-color: #289bc817; */
     color: rgb(106, 202, 202);
     -webkit-background-clip: text;

@@ -43,7 +43,7 @@ function Card({searchGames, videogames, name, gameById}){
                     <p className={s.ctnGenresCard}> Rating: {e.rating}</p>
                     </div></NavLink>
                </div>):<div className={s.contLoading}>
-                <img src={loading} alt='Gif Cargando' className={s.loading}/>
+                <img src={"https://i.gifer.com/origin/31/31a27926c57df380d818c625323ca69e_w200.webp"} alt='Gif Cargando' className={s.loading}/>
                 </div>
             } 
         </div> 

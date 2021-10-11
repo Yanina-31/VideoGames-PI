@@ -5,21 +5,23 @@
     margin: 1em 2em;
 } */
 .btn{
-    height:27px;
+    height:25px;
     width: 100px;
     /* border: none; */
     border-radius: 20px;
     /* border-bottom-right-radius: 20px; */
     cursor: pointer;
-    background-color: rgb(109, 23, 131);
-    color: rgb(106, 202, 202);
+    background-image: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
+    color: rgb(109, 23, 131);
     box-shadow: 0px 5px #8c40ca;
+    border: solid 2px #c182eb;
     margin-bottom: 2em;
     margin-top: 2em;
     margin-left: 2em;
 }
 .btn:hover{
-    background-color: rgb(170, 239, 248);
-    color:#dba8eb;
-    box-shadow: 0px 5px rgb(240, 147, 234);
+    color: rgba(17, 169, 207, 0.842);
+    background: #a6c1ee;
+    background: linear-gradient(to top,#a6c1ee 10%, #fbc2eb 100%);
+    box-shadow: 0px 5px #a6c1ee;
 }
