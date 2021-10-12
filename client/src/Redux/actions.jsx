@@ -21,6 +21,7 @@ export function searchGames(){
     }
 }
 
+
 export function searchByName(name){
     return async function(dispatch){
         if(name !== ''){

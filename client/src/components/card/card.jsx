@@ -4,10 +4,11 @@ import {searchGames,gameById} from '../../Redux/actions.jsx';
 import s from './card.module.css'
 import {NavLink} from 'react-router-dom';
 import Paginado from '../Paginado/paginado.jsx'
-import loading from '../../assets/pacman1111.gif'
+// import loading from '../../assets/pacman1111.gif'
 
 
 function Card({searchGames, videogames, name, gameById}){
+    
     useEffect(() => {
         searchGames()
     },[])

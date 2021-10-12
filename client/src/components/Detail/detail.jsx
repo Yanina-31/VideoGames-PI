@@ -7,7 +7,7 @@ function Details({videogame}){
     return (
         <div className={s.container}>
             {
-                videogame && videogame.map(e => 
+                videogame && videogame.map(e =>
                 <div key={e.id}>
                     <div className={s.texts}>
                         <h1>{e.name}</h1>

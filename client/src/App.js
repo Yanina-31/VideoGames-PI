@@ -32,3 +32,24 @@ function App() {
 }
 
 export default App;
+
+{/* <Route exact path= '/app/home'>
+            <Nav />
+            <Order />
+            <Card />
+            <Paginado />
+          </Route>
+          
+          <Route exact path='/app/home/create'>
+            <Nav />
+            <Create />
+          </Route>
+
+          <Route exact path='/'>
+            <LandingPage />
+          </Route>
+
+          <Route exact path='/app/:id'>
+            <Nav />
+            <Detail />
+          </Route> */}
