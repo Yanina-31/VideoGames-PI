@@ -29,11 +29,6 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase
         <div className={s.container}>
             <div className={s.containers}>
                 <label>Filter Data Base</label>
-                {/* <select className={s.select}>
-                    <option className={s.inputOrder} selected>All</option>
-                    <option value="creados">Created</option>
-                    <option value="api">Api</option>
-                </select> */}
                 <select className={s.select} ref={BaseRef} onChange={OrderDataBase}>
                 <option disabled selected>Select</option>
                 <option>Yes</option>

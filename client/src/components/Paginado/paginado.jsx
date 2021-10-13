@@ -17,11 +17,6 @@ export default function Paginado({pages, totalPages, totalVideogames, currentPag
         }
     }
 
-    // const handleClick = () => {
-    //     scrollUp()
-
-    // }
-
     return (
         <div>
                 {

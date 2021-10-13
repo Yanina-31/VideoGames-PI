@@ -22,15 +22,6 @@ function Details({videogame}){
                     </div>
                 </div>)
             }
-            {/* <div className={s.fondos}>
-                <div className={s.degradado}></div>
-                <div className={s.containerImg}>
-                    {
-                        videogame && videogame.map((e, i) => <><img src={e.image} alt="videogames image" className={s.img}/></>)
-                    }
-                </div>
-                <div className={s.cortador}></div>
-            </div> */}
         </div>
     )
 }
