@@ -20,7 +20,7 @@ export default function Paginado({pages, totalPages}){
     return (
         <div>
                 {
-                   arrPages && arrPages.map(e => <button onClick={()=>{pages(e+1);  scrollUp()}} className={s.btn}>Page {e+1}</button>)
+                   arrPages && arrPages.map((e,i) => <button key={i} onClick={()=>{pages(e+1);  scrollUp()}} className={s.btn}>Page {e+1}</button>)
                 }
         </div>
     )
