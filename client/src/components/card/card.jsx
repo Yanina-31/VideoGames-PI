@@ -20,10 +20,10 @@ function Card({searchGames, videogames, name, gameById}){
     const [currentPage, setCurrentPage] = useState(1)
     const [totalVideogames, setTotalVideogames] = useState(15)
 
-    const totalPages = Math.floor(videogames.length / totalVideogames)
+    const totalPages = Math.floor(videogames.length / totalVideogames)//100/15
 
     let games = videogames.slice(currentPage*totalVideogames-15, currentPage*totalVideogames)
-
+                                 //(pag 1 indice 0) 1*15-15       // 1*15
     function pages(num){
         setCurrentPage(num)
     }
