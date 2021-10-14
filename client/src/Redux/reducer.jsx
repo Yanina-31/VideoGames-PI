@@ -30,7 +30,7 @@ const reducer = (state=initialStore, action) => {
 
         case buscarPorNombre: return {
             ...state,
-            videoGames: action.payload
+            videoGames: action.payload == null ? state.fullGames : action.payload
         }
 
         case buscarNombrePorId: return {

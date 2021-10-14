@@ -1,11 +1,9 @@
 import axios from 'axios';
-
 export const buscar = "BUSCAR_LOS_JUEGOS";
 export const buscarPorNombre = "BUSCAR_POR_NOMBRE";
 export const buscarNombrePorId = "BUSCAR_NOMBRE_POR_ID";
 export const dataBase = "JUEGOS_DE_LA_BASE_DE_DATOS";
 export const obtenerGeneros = "OBTENER_LOS_GENEROS_DE_LA_BASE_DE_DATOS";
-// export const obtenerPlataformas = "OBTENER_LAS_PLATAFORMAS_DE_LA_BASE_DE_DATOS";
 export const gameByGenre = "OBTENER_JUEGOS_SOLO_POR_EN_GENERO";
 export const gameByRating = "OBTENER_LOS_JUEGOS_POR_RATING";
 export const alphabeticalOrder = "OBTENER_LOS_JUEGOS_EN_ORDEN_ALFABETICOS";
@@ -33,7 +31,7 @@ export function searchByName(name){
         }
         return dispatch({
             type: buscarPorNombre,
-            payload: []
+            payload: null
         })
     }
 }
@@ -69,15 +67,6 @@ export function getGenres(){
     }
 }
 
-// export function getPlatforms(){
-//     return async function(dispatch){
-//         let platforms = await axios.get('http://localhost:3001/api/platforms')
-//         return dispatch({
-//             type: obtenerPlataformas,
-//             payload: platforms.data
-//         })
-//     }
-// }
 
 export function buscarPorGenero(name){
     return async function(dispatch){

@@ -16,8 +16,12 @@ export default function Nav (){
     }
 
     function buscar(){
-        console.log(state)
+        // console.log(state)
         setState(miRef.current.value)
+        if(miRef.current.value === ''){
+            dispatch(searchByName(''))
+        }
+       
         
     }
 

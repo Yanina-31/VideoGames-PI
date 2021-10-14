@@ -89,6 +89,8 @@
     transform:scale(1.1);
     background-clip: border-box;
     background: rgb(99, 19, 173);
+    box-shadow: 0px 5px #8c40ca;
+    /* box-shadow: 0px 5px #a6c1ee; */
     background: linear-gradient(0deg, rgb(240, 147, 234) 10%, rgb(109, 23, 131) 30%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

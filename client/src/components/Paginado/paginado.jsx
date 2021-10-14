@@ -1,7 +1,7 @@
 import React from "react";
 import s from './paginado.module.css';
 
-export default function Paginado({pages, totalPages, totalVideogames, currentPage}){
+export default function Paginado({pages, totalPages}){
 
     let arrPages = [];
 
@@ -20,7 +20,7 @@ export default function Paginado({pages, totalPages, totalVideogames, currentPag
     return (
         <div>
                 {
-                   arrPages && arrPages.map(e => <button onClick={()=>{pages(e+1);  scrollUp()}} className={s.btn}>pagina {e+1}</button>)
+                   arrPages && arrPages.map(e => <button onClick={()=>{pages(e+1);  scrollUp()}} className={s.btn}>Page {e+1}</button>)
                 }
         </div>
     )
