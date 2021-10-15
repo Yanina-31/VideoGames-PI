@@ -29,7 +29,7 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase
         <div className={s.container}>
             <div className={s.containers}>
                 <label>Filter Data Base</label>
-                <select className={s.select} ref={BaseRef} onChange={OrderDataBase}>
+                <select defaultValue="Select" className={s.select} ref={BaseRef} onChange={OrderDataBase}>
                 <option disabled selected>Select</option>
                 <option value="Yes">Yes</option>
                 <option value="All">All</option>
@@ -37,7 +37,7 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase
             </div>
             <div className={s.containers}>
                 <label>Alphabetical Order</label>
-                <select className={s.select} ref={miRef} onChange={cambiarEstado}>
+                <select defaultValue="Select" className={s.select} ref={miRef} onChange={cambiarEstado}>
                     <option disabled selected>Select</option>
                     <option value="A - Z">A - Z</option>
                     <option value="Z - A">Z - A</option>
@@ -45,7 +45,7 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase
             </div>
             <div className={s.containers}>
                 <label>Filter Genres</label>
-                <select className={s.select} ref={GenRef} onChange={OrderGenres}>
+                <select defaultValue="Select" className={s.select} ref={GenRef} onChange={OrderGenres}>
                 <option disabled selected>Select</option>
                     <option value="Action">Action</option>
                     <option value="Indie">Indie</option>
@@ -70,7 +70,7 @@ function Order({ordenAlfabetico, buscarPorGenero, buscarPorRating, gamesDatabase
             </div>
             <div className={s.containers}>
                 <label>Filter Rating</label>
-                <select className={s.select} ref={RatRef} onChange={OrderRating}>
+                <select defaultValue="Select" className={s.select} ref={RatRef} onChange={OrderRating}>
                     <option disabled selected>Select</option>
                     <option value="Asc">Lower Score</option>
                     <option value="Desc">Higher Score</option>

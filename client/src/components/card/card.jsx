@@ -7,7 +7,7 @@ import Paginado from '../Paginado/paginado.jsx'
 // import loading from '../../assets/pacman1111.gif'
 
 
-function Card({searchGames, videogames, name, gameById}){
+function Card({searchGames, videogames, gameById}){
     
     useEffect(() => {
         searchGames()

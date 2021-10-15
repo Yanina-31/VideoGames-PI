@@ -14,13 +14,6 @@ function App() {
   <React.Fragment>
     <BrowserRouter>
       <div className="App">
-      {/* <Route path= '/app/' component={Nav}/> 
-      <Route exact path= '/app/home' component={Order}/>
-      <Route exact path='/app/home/create' component={Create}/> */}
-       {/* <Route exact path= '/app/home' component={Card}/>
-          <Route exact path= '/' component={LandingPage}/>
-          <Route path='/app/home' component={Paginado}/>
-          <Route exact path='/app/:id' component={Detail}/> */}
         <Switch>
           <Route exact path= '/app/home'>
             <Nav />
